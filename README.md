@@ -19,7 +19,8 @@ https://randomnerdtutorials.com/install-esp8266-nodemcu-littlefs-arduino/
 
 ## Documentação
 
-Todas as bibliotecas utilizadas no código do repositório estão documentadas na URL: https://github.com/esp8266/Arduino
+Todas as bibliotecas utilizadas no código do repositório estão documentadas na URL:
+https://github.com/esp8266/Arduino
 
 Caso utilize a a mesma placa descrita neste material, veja o mapeamento dos pinos em: https://blogmasterwalkershop.com.br/embarcados/wemos/conhecendo-a-wemos-d1
 
