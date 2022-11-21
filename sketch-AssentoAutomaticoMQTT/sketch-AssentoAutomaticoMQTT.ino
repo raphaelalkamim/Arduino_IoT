@@ -135,7 +135,7 @@ void setup() {
   // you can use the insecure mode, when you want to avoid the certificates
   //espclient->setInsecure();
 
-  int numCerts = certStore.initCertStore(LittleFS, PSTR("/certs.idx"), PSTR("/data/certs.ar"));
+  int numCerts = certStore.initCertStore(LittleFS, PSTR("/certs.idx"), PSTR("/certs.ar"));
   Serial.printf("Number of CA certs read: %d\n", numCerts);
   if (numCerts == 0) {
     Serial.printf("No certs found. Did you run certs-from-mozilla.py and upload the LittleFS directory before running?\n");
@@ -172,7 +172,7 @@ void loop() {
     Serial.print(cmMsec);
     Serial.println();
     if (cmMsec < 10) {
-      servo.write(0);
+      servo.write(180);
       lastMsg = now;
       ++value;
       snprintf(msg, MSG_BUFFER_SIZE, "Assento foi aberto! #%ld", value);
@@ -181,8 +181,8 @@ void loop() {
       client->publish("AssentoAutomatico:Sensor1", msg);
       delay(3000);
     } else {
-      servo.write(180);
-      delay(5000);
+      servo.write(0);
+      delay(2000);
     }
   }
 }
