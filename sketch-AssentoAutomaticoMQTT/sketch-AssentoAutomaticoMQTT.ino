@@ -17,11 +17,10 @@
 Ultrasonic ultrasonic(pino_trigger, pino_echo);
 Servo servo;
 
-
 // Update these with values suitable for your network.
-const char* ssid = "Ando";
-const char* password = "floripa1";
-const char* mqtt_server = "44cd0864c6d845c3b27e34f0f72321bc.s1.eu.hivemq.cloud";
+const char* ssid = "The_Simpsons";
+const char* password = "AbrahamSimpson99*";
+const char* mqtt_server = "cb78222242b4451a85d1fb1fcc19cc83.s2.eu.hivemq.cloud";
 
 // A single, global CertStore which can be used by all connections.
 // Needs to stay live the entire time any of the WiFiClientBearSSLs
@@ -39,14 +38,14 @@ void setup_wifi() {
   delay(10);
   // We start by connecting to a WiFi network
   Serial.println();
-  Serial.print("Connecting");
+  Serial.print("Connecting: ");
   Serial.println(ssid);
 
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
+    delay(1000);
     Serial.print("connecting...");
   }
 
@@ -57,7 +56,6 @@ void setup_wifi() {
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 }
-
 
 void setDateTime() {
   // You can use your own timezone, but the exact time is not used at all.
@@ -77,7 +75,6 @@ void setDateTime() {
   gmtime_r(&now, &timeinfo);
   Serial.printf("%s %s", tzname[0], asctime(&timeinfo));
 }
-
 
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
@@ -100,7 +97,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 }
 
-
 void reconnect() {
   // Loop until we’re reconnected
   while (!client->connected()) {
@@ -108,7 +104,7 @@ void reconnect() {
     String clientId = "ESP8266Client - MyClient";
     // Attempt to connect
     // Insert your password
-    if (client->connect(clientId.c_str(), "IoTThiRapha","aulachata")) {
+    if (client->connect(clientId.c_str(), "IoTRaphaelEThiago","t8YM6pufcp_gKXT")) {
       Serial.println("connected");
       // Once connected, publish an announcement…
       client->publish("test", "hello world");
@@ -123,7 +119,6 @@ void reconnect() {
     }
   }
 }
-
 
 void setup() {
   delay(500);
@@ -187,7 +182,7 @@ void loop() {
       delay(3000);
     } else {
       servo.write(180);    
-      delay(1000);
+      delay(5000);
     }
   }
 }
