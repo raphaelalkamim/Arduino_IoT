@@ -25,6 +25,8 @@ Caso utilize a a mesma placa descrita neste material, veja o mapeamento dos pino
 
 Nesta URL, há alguns descritivos de como resolver possíveis problemas de conexão da placa no Wi-Fi desejado: https://www.filipeflop.com/blog/como-conectar-o-esp8266-a-internet/
 
+Se desejar, poderá testar as conexões, desenvolvimento de código e fluxograma préviamente atráves da URL: https://www.tinkercad.com/things/iTFz69WT6VF-neat-albar/editel?tenant=circuits
+
 ## Material e Hardware
 
 Lista de material e hardware utilizado para o projeto protótipo descrito:
