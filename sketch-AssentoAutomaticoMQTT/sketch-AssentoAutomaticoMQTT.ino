@@ -7,12 +7,12 @@
 #include <CertStoreBearSSL.h>
 #include <Ultrasonic.h>
 #include <Servo.h>
- 
+
 //Pinos trigger e echo
 #define pino_trigger 12
 #define pino_echo 13
 #define pino_servo 14
- 
+
 //Inicializa o sensor
 Ultrasonic ultrasonic(pino_trigger, pino_echo);
 Servo servo;
@@ -28,7 +28,7 @@ const char* mqtt_server = "cb78222242b4451a85d1fb1fcc19cc83.s2.eu.hivemq.cloud";
 BearSSL::CertStore certStore;
 
 WiFiClientSecure espClient;
-PubSubClient * client;
+PubSubClient* client;
 unsigned long lastMsg = 0;
 #define MSG_BUFFER_SIZE (500)
 char msg[MSG_BUFFER_SIZE];
@@ -87,13 +87,13 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
   // Switch on the LED if the first character is present
   if ((char)payload[0] != NULL) {
-    digitalWrite(LED_BUILTIN, LOW); // Turn the LED on (Note that LOW is the voltage level
+    digitalWrite(LED_BUILTIN, LOW);  // Turn the LED on (Note that LOW is the voltage level
     // but actually the LED is on; this is because
     // it is active low on the ESP-01)
     delay(500);
-    digitalWrite(LED_BUILTIN, HIGH); // Turn the LED off by making the voltage HIGH
+    digitalWrite(LED_BUILTIN, HIGH);  // Turn the LED off by making the voltage HIGH
   } else {
-    digitalWrite(LED_BUILTIN, HIGH); // Turn the LED off by making the voltage HIGH
+    digitalWrite(LED_BUILTIN, HIGH);  // Turn the LED off by making the voltage HIGH
   }
 }
 
@@ -104,7 +104,7 @@ void reconnect() {
     String clientId = "ESP8266Client - MyClient";
     // Attempt to connect
     // Insert your password
-    if (client->connect(clientId.c_str(), "IoTRaphaelEThiago","t8YM6pufcp_gKXT")) {
+    if (client->connect(clientId.c_str(), "IoTRaphaelEThiago", "t8YM6pufcp_gKXT")) {
       Serial.println("connected");
       // Once connected, publish an announcement…
       client->publish("test", "hello world");
@@ -130,19 +130,19 @@ void setup() {
   setup_wifi();
   setDateTime();
 
-  pinMode(LED_BUILTIN, OUTPUT); // Initialize the LED_BUILTIN pin as an output
+  pinMode(LED_BUILTIN, OUTPUT);  // Initialize the LED_BUILTIN pin as an output
 
   // you can use the insecure mode, when you want to avoid the certificates
   //espclient->setInsecure();
 
-  int numCerts = certStore.initCertStore(LittleFS, PSTR("/certs.idx"), PSTR("/certs.ar"));
+  int numCerts = certStore.initCertStore(LittleFS, PSTR("/certs.idx"), PSTR("/data/certs.ar"));
   Serial.printf("Number of CA certs read: %d\n", numCerts);
   if (numCerts == 0) {
     Serial.printf("No certs found. Did you run certs-from-mozilla.py and upload the LittleFS directory before running?\n");
-    return; // Can't connect to anything w/o certs!
+    return;  // Can't connect to anything w/o certs!
   }
 
-  BearSSL::WiFiClientSecure *bear = new BearSSL::WiFiClientSecure();
+  BearSSL::WiFiClientSecure* bear = new BearSSL::WiFiClientSecure();
   // Integrate the cert store with this connection
   bear->setCertStore(&certStore);
 
@@ -175,13 +175,13 @@ void loop() {
       servo.write(0);
       lastMsg = now;
       ++value;
-      snprintf (msg, MSG_BUFFER_SIZE, "Assento foi aberto! #%ld", value);
+      snprintf(msg, MSG_BUFFER_SIZE, "Assento foi aberto! #%ld", value);
       Serial.print("Publish message: ");
       Serial.println(msg);
-      client->publish("AssentoAutomatico:Sensor1", msg);  
+      client->publish("AssentoAutomatico:Sensor1", msg);
       delay(3000);
     } else {
-      servo.write(180);    
+      servo.write(180);
       delay(5000);
     }
   }
