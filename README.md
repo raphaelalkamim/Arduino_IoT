@@ -23,6 +23,8 @@ Todas as bibliotecas utilizadas no código do repositório estão documentadas n
 
 Caso utilize a a mesma placa descrita neste material, veja o mapeamento dos pinos em: https://blogmasterwalkershop.com.br/embarcados/wemos/conhecendo-a-wemos-d1
 
+Nesta URL, há alguns descritivos de como resolver possíveis problemas de conexão da placa no Wi-Fi desejado: https://www.filipeflop.com/blog/como-conectar-o-esp8266-a-internet/
+
 ## Material e Hardware
 
 Lista de material e hardware utilizado para o projeto protótipo descrito:
