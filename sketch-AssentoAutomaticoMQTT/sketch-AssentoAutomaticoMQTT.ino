@@ -23,9 +23,9 @@ Servo servo;
 BearSSL::CertStore certStore;
 
 // Atualizar com os valores da rede Wi-Fi que será connectado e com o Cluster do MQTT Client
-const char* ssid = "The_Simpsons";
-const char* password = "AbrahamSimpson99*";
-const char* mqtt_server = "cb78222242b4451a85d1fb1fcc19cc83.s2.eu.hivemq.cloud";
+const char* ssid = "NOME DA REDE WIFI";
+const char* password = "SENHA DA REDE WIFI";
+const char* mqtt_server = "ENDERECO CLUSTER MQTT CLIENT";
 
 WiFiClientSecure espClient;
 PubSubClient* client;
