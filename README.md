@@ -19,7 +19,14 @@ https://randomnerdtutorials.com/install-esp8266-nodemcu-littlefs-arduino/
 
 ## Documentação
 
-Todas as bibliotecas utilizadas no código do repositório estão documentadas na URL: https://github.com/esp8266/Arduino
+Todas as bibliotecas utilizadas no código do repositório estão documentadas na URL:
+https://github.com/esp8266/Arduino
+
+Caso utilize a a mesma placa descrita neste material, veja o mapeamento dos pinos em: https://blogmasterwalkershop.com.br/embarcados/wemos/conhecendo-a-wemos-d1
+
+Nesta URL, há alguns descritivos de como resolver possíveis problemas de conexão da placa no Wi-Fi desejado: https://www.filipeflop.com/blog/como-conectar-o-esp8266-a-internet/
+
+Se desejar, poderá testar as conexões, desenvolvimento de código e fluxograma préviamente atráves da URL: https://www.tinkercad.com/things/iTFz69WT6VF-neat-albar/editel?tenant=circuits
 
 ## Material e Hardware
 
