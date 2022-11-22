@@ -9,23 +9,23 @@
 #include <Servo.h>
 
 //Pinos trigger e echo
-#define pino_trigger 12
-#define pino_echo 13
-#define pino_servo 14
+#define pino_trigger 12 //D6 MISO
+#define pino_echo 13 //D7 MOSI
+#define pino_servo 14 //D5 SCK
 
 //Inicializa o sensor
 Ultrasonic ultrasonic(pino_trigger, pino_echo);
 Servo servo;
 
-// Update these with values suitable for your network.
-const char* ssid = "The_Simpsons";
-const char* password = "AbrahamSimpson99*";
-const char* mqtt_server = "cb78222242b4451a85d1fb1fcc19cc83.s2.eu.hivemq.cloud";
-
 // A single, global CertStore which can be used by all connections.
 // Needs to stay live the entire time any of the WiFiClientBearSSLs
 // are present.
 BearSSL::CertStore certStore;
+
+// Atualizar com os valores da rede Wi-Fi que será connectado e com o Cluster do MQTT Client
+const char* ssid = "The_Simpsons";
+const char* password = "AbrahamSimpson99*";
+const char* mqtt_server = "cb78222242b4451a85d1fb1fcc19cc83.s2.eu.hivemq.cloud";
 
 WiFiClientSecure espClient;
 PubSubClient* client;
